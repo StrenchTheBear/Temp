@@ -6,3 +6,14 @@
     <h1>Congratulations!</h1>
     <h2>@ViewData["Message"]</h2>
 </div>
+
+<div>
+    <h1>Base de datos prueba</h1>
+    <ul>
+        @foreach (var ReadDB in Model)
+        {
+            <li>@ReadDB.Fecha</li>
+            <li>@ReadDB.Temperatura</li>
+        }
+    </ul>
+</div>
