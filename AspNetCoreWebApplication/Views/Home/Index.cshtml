@@ -1,4 +1,6 @@
-﻿@{
+﻿@using AspNetCoreWebApplication.Models
+@model ICollection<ReadDB> 
+@{
     ViewData["Title"] = "Example app";
 }
 <a class="twitter-link" href="https://twitter.com/home/?status=I just hosted a website on AWS!"><img src="img/tweet.svg" /></a>
@@ -16,7 +18,7 @@
             </thead>
 
                  @foreach (var x in Model){
-                     @if(x.temperatura != null ) {
+                     @if(x.Fecha != null ) {
                         <tr>
                             <td>@x.Fecha</td>
                             <td>@x.Temperatura</td>

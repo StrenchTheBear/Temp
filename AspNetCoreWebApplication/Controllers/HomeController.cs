@@ -59,7 +59,7 @@ namespace AspNetCoreWebApplication.Controllers
             do{
                 string valor = "";
                 if(i==0){
-                    j=47;
+                    j=19;
                     
                     
                     i++;                
@@ -72,14 +72,14 @@ namespace AspNetCoreWebApplication.Controllers
 
                 foreach(string val in lectura){
                     Console.WriteLine(val);
-                    temp2.Temperatura = val;
+                    temp2.Fecha = val;
                 }
 
 
                 
                 ReadDB temp = new ReadDB();
-                temp = _context.temp.FirstOrDefault(i => i.Fecha == x);
-                temp.Temperatura = temp2.Temperatura;
+                temp = _context.temp.FirstOrDefault(i => i.Temperatura == x);
+                temp.Fecha = temp2.Fecha;
                 _context.Update(temp);
                 _context.SaveChanges();
 

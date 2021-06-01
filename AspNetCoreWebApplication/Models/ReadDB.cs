@@ -9,7 +9,7 @@ namespace AspNetCoreWebApplication.Models
     public class ReadDB
     {
         
-        public int Fecha { get; set; }
-        public string Temperatura { get; set; }
+        public String Fecha { get; set; }
+        public int Temperatura { get; set; }
     }
 }
