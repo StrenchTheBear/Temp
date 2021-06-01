@@ -7,13 +7,20 @@
     <h2>@ViewData["Message"]</h2>
 </div>
 
-<div>
-    <h1>Base de datos prueba</h1>
-    <ul>
-        @foreach (var ReadDB in Model)
-        {
-            <li>@ReadDB.Fecha</li>
-            <li>@ReadDB.Temperatura</li>
-        }
-    </ul>
-</div>
+<table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha </th>
+                    <th scope="col">Temperatura </th>
+                </tr>
+            </thead>
+
+                 @foreach (var x in Model){
+                     @if(x.temperatura != null ) {
+                        <tr>
+                            <td>@x.Fecha</td>
+                            <td>@x.Temperatura</td>
+                        </tr>
+                    }
+                }                            
+</table>
