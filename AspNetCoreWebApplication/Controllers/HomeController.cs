@@ -23,9 +23,9 @@ namespace AspNetCoreWebApplication.Controllers
 
         public IActionResult Index()
         {
-            var Db=_context.temptp.ToList();
+            // var ReadDB=_context.newtable.ToList();
 
-            return View(Db);
+            return View();
     
         }
 
@@ -72,18 +72,18 @@ namespace AspNetCoreWebApplication.Controllers
 
                 foreach(string val in lectura){
                     Console.WriteLine(val);
-                    temp2.Fecha = val;
+                    temp2.tempera = val;
                 }
 
 
                 
-                ReadDB temp = new ReadDB();
-                temp = _context.temptp.FirstOrDefault(i => i.Temperatura == x);
-                temp.Fecha = temp2.Fecha;
-                _context.Update(temp);
-                _context.SaveChanges();
+                // ReadDB temp = new ReadDB();
+                // temp = _context.temptp.FirstOrDefault(i => i.tempera == x);
+                // temp.Fecha = temp2.Fecha;
+                // _context.Update(temp);
+                // _context.SaveChanges();
 
-            return View(temp);
+            return View(lectura);
 
             }
         
@@ -92,6 +92,41 @@ namespace AspNetCoreWebApplication.Controllers
         {
             ViewData["Message"] = "We've encountered an error :(";
             return View();
-        }        
+        }
+
+        public async Task<IActionResult> Cargar(int x){
+            // var datos = _context.newtable.ToList();
+            // return View(datos);
+
+            List<String> lectura = new List<string>();
+            int i =0;
+            int j =0;
+            var httpClient = new HttpClient();
+            var json = await httpClient.GetStringAsync("https://jgbo9n6qqk.execute-api.us-east-2.amazonaws.com/Testget/getreaddb");
+            Console.WriteLine(json); 
+           
+            do{
+                string valor = "";
+                if(i==0){
+                    j=46;
+                    i++;                
+                }
+                valor=json.Substring(j,2);
+                j=j+40;
+                lectura.Add(valor);
+                }
+            while(j<= (json.Length-49));
+
+            foreach(string val in lectura){
+                Console.WriteLine(val);
+                // temp2.tempera = val;
+            }
+                ReadDB temp = new ReadDB();
+                temp = _context.newtable.FirstOrDefault();
+                // temp.Fecha = temp2.Fecha;
+                // _context.Update(temp);
+                // _context.SaveChanges();
+            return View(lectura);
+        }
     }
 }

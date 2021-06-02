@@ -1,22 +1,6 @@
-﻿@using AspNetCoreWebApplication.Models
+@using AspNetCoreWebApplication.Models
 @model ICollection<ReadDB> 
-@{
-    ViewData["Title"] = "Example app";
-}
-@* <a class="twitter-link" href="https://twitter.com/home/?status=I just hosted a website on AWS!"><img src="img/tweet.svg" /></a> *@
-
-
-@* <div class="row text">
-    <h1>Congratulations!</h1>
-</div> *@
-@* <div class="row">
-    <h2>@ViewData["Message"]</h2>
-</div> *@
 <div>
-    <a asp-controller="Home" asp-action="Cargar">Cargar Datos</a>
-</div>
-
-@* <div>
     <table class="table table-dark table-striped">
                 <thead>
                     <tr>
@@ -29,9 +13,9 @@
                         @if(x.fecha != null ) {
                             <tr>
                                 <td>@x.fecha</td>
-                                <td>@x.tempera</td>
+                                <td>@int.Parse(x.tempera)</td>
                             </tr>
                         }
                     }                            
     </table>
-</div> *@
+</div>

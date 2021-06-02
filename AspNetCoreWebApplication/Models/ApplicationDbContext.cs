@@ -13,7 +13,7 @@ namespace AspNetCoreWebApplication.Models
             : base(options)
         {
         }
-        public DbSet<AspNetCoreWebApplication.Models.ReadDB> temptp { get; set; }
+        public DbSet<AspNetCoreWebApplication.Models.ReadDB> newtable { get; set; }
         
         
 
