@@ -23,7 +23,7 @@ namespace AspNetCoreWebApplication.Controllers
 
         public IActionResult Index()
         {
-            var Db=_context.temp.ToList();
+            var Db=_context.temptp.ToList();
 
             return View(Db);
     
@@ -78,7 +78,7 @@ namespace AspNetCoreWebApplication.Controllers
 
                 
                 ReadDB temp = new ReadDB();
-                temp = _context.temp.FirstOrDefault(i => i.Temperatura == x);
+                temp = _context.temptp.FirstOrDefault(i => i.Temperatura == x);
                 temp.Fecha = temp2.Fecha;
                 _context.Update(temp);
                 _context.SaveChanges();
