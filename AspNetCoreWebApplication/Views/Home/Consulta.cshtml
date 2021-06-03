@@ -1,11 +1,11 @@
 @using AspNetCoreWebApplication.Models
 @model AspNetCoreWebApplication.Models.ReadDB;
 
+<div class="text">
+    <h2>@ViewData["mensaje"]</h2>
+</div>
 
-<h1>Informacion Alumno</h1>
 
-<form asp-controller="Home" asp-action="Buscador" class="d-flex">
-        
-        <input name="x" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>                      
+<form asp-controller="Home" asp-action="Index" class="d-flex">   
+        <button class="btn btn-outline-success" type="submit">Regresar</button>                      
 </form>

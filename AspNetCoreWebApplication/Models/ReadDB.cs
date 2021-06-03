@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AspNetCoreWebApplication.Models
 {
+    //define la estructura de la BD para el aplicativo web
  
     public class ReadDB
     {
