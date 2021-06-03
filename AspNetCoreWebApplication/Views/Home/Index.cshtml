@@ -9,11 +9,11 @@
 @* <div class="row text">
     <h1>Congratulations!</h1>
 </div> *@
-<div class="text">
+@* <div class="row">
     <h2>@ViewData["Message"]</h2>
-    </div>
+</div> *@
 <div>
-    <li><a asp-controller="Home" asp-action="Consulta">Cargar Datos</a>
+    <a asp-controller="Home" asp-action="Consulta">Cargar Datos</a>
 </div>
 
 @* <div>
@@ -24,7 +24,6 @@
                         <th scope="col">Temperatura </th>
                     </tr>
                 </thead>
-
                     @foreach (var x in Model){
                         @if(x.fecha != null ) {
                             <tr>

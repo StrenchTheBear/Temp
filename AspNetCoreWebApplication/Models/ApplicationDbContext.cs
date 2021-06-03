@@ -9,6 +9,7 @@ namespace AspNetCoreWebApplication.Models
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        //nos permite conectarnos a la BD en heroku mediante el uso de sus credenciales
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

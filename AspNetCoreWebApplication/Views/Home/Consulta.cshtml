@@ -2,13 +2,12 @@
 @model AspNetCoreWebApplication.Models.ReadDB;
 
 
+@*muetra la variable json*@
+<div class="text">
+    <h2>@ViewData["mensaje"]</h2>
+</div>
 
-<form asp-controller="Home" asp-action="Consulta" class="d-flex">
-        
-        <input name="x" class="form-control me-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>                      
+
+<form asp-controller="Home" asp-action="Index" class="d-flex">   
+        <button class="btn btn-outline-success" type="submit">Regresar</button>                      
 </form>
-
-<ul>
-@ViewData["mensaje"]
-</ul>
