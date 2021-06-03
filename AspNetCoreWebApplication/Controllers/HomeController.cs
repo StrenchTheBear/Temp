@@ -13,7 +13,7 @@ using Newtonsoft.Json.Linq;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor;
-
+using System.Data;
 
 namespace AspNetCoreWebApplication.Controllers
 {
@@ -42,7 +42,8 @@ namespace AspNetCoreWebApplication.Controllers
 
         
         public IActionResult Consulta()
-        {                 
+        {   
+                         
             return View();
         }
 
@@ -55,6 +56,8 @@ namespace AspNetCoreWebApplication.Controllers
             var httpClient = new HttpClient();
             var json = await httpClient.GetStringAsync("https://jgbo9n6qqk.execute-api.us-east-2.amazonaws.com/Testget/getreaddb");
             Console.WriteLine(json); 
+            ViewData["mensaje"] = json;
+            
            
             do{
                 string valor = "";
@@ -73,6 +76,7 @@ namespace AspNetCoreWebApplication.Controllers
                 foreach(string val in lectura){
                     Console.WriteLine(val);
                     temp2.tempera = val;
+
                 }
 
 
@@ -83,7 +87,7 @@ namespace AspNetCoreWebApplication.Controllers
                 // _context.Update(temp);
                 // _context.SaveChanges();
 
-            return View(lectura);
+            return View(json);
 
             }
         
@@ -103,7 +107,8 @@ namespace AspNetCoreWebApplication.Controllers
             int j =0;
             var httpClient = new HttpClient();
             var json = await httpClient.GetStringAsync("https://jgbo9n6qqk.execute-api.us-east-2.amazonaws.com/Testget/getreaddb");
-            Console.WriteLine(json); 
+            Console.WriteLine(json);   
+            ViewData["json"] = json;          
            
             do{
                 string valor = "";
@@ -119,14 +124,16 @@ namespace AspNetCoreWebApplication.Controllers
 
             foreach(string val in lectura){
                 Console.WriteLine(val);
-                // temp2.tempera = val;
+                temp2.tempera = val;
             }
-                ReadDB temp = new ReadDB();
-                temp = _context.newtable.FirstOrDefault();
-                // temp.Fecha = temp2.Fecha;
-                // _context.Update(temp);
-                // _context.SaveChanges();
-            return View(lectura);
+                //ReadDB temp = new ReadDB();
+                //DataTable dt = new DataTable();
+                
+                //temp = _context.newtable.FirstOrDefault();
+                //temp.tempera = temp2.tempera;
+                //_context.Update(temp);
+                //_context.SaveChanges();
+            return View();
         }
     }
 }
